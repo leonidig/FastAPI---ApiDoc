@@ -26,6 +26,11 @@ def migrate():
     up()
 
 
+def get_session():
+    with SESSION.begin() as session:
+        yield session
+
+
 from .models import Item, User
 
 migrate()
